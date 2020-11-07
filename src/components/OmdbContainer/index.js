@@ -7,7 +7,8 @@ import API from "../../utils/API";
 class OmdbContainer extends Component {
     state = {
         result: [],
-        filter: "",
+        search: "",
+        searchEmp: [],
         
     }
 
@@ -21,29 +22,41 @@ class OmdbContainer extends Component {
         )
     }
 
-    employeeFilter = (filter) => {
-       let employeeFilter = this.state.filteredResult
-       employeeFilter = employeeFilter.filter(results => {
-            let filterEmployee = filter.name.first.toLowerCase()
-            return filterEmployee.indexOf(filter.toLowerCase()) !== -1
-       })
-       this.setState({
-           employeeFilter
-       })
-    }
+    // handleInputChange = event => {
+    //     const name = event.target.name;
+    //     const value = event.target.value;
+    //     this.setState({
+    //       [name]: value
+    //     });
+    // };
+
+
+    // searchEmployees = () => {
+    //     let filterSearch = []
+    //     this.state.results.forEach(data => {
+    //         if(data.name.first.includes(this.state.search)) {
+    //             filterSearch.push(data)
+    //         }
+    //     })
+    //     this.setState({searchEmp: filterSearch})
+    // }
+
+    // handleFormSubmit = event => {
+    //     event.preventDefault();
+    //     this.searchEmployees();
+    // };
 
     render() {
       
         return (
             <div>
                 <NavBar 
-                    employeeFilter={this.employeeFilter}
+                   
                 />
                 <div className="row">
                     {this.state.result.map(result => (
                         <EmployeeCard
                             key={result.id.value}
-                            gender={result.gender}
                             firstName={result.name.first}
                             lastName={result.name.last}
                             phone={result.phone}

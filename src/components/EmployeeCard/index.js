@@ -3,17 +3,17 @@ import "./styles.css";
 
 function EmployeeCard(props) {
     return (
-        <div className="container">
-            <div className="employeeCard">
-                <ul className="list-group list-group-horizontal">
-                    <img alt="" src={props.image} />
-                    <li className="list-group-item">Name: {props.firstName} {props.lastName}</li>
-                    <li className="list-group-item">Phone: {props.phone}</li>
-                    <li className="list-group-item">Email: {props.email}</li>
-                    <li className="list-group-item">Age: {props.age}</li>
-                </ul>
+            <div className="col-md-6">
+                <div className="card employeeCard">
+                    <img alt="" src={props.image} className="employeePicture" />
+                    <div className="card-body">
+                        <h5 className="card-title"><strong>Name:</strong> {props.firstName} {props.lastName}</h5>
+                        <p className="card-text"><strong>Phone:</strong> {props.phone}</p>
+                        <p className="card-text"><strong>Email:</strong> {props.email}</p>
+                        <p className="card-text"><strong>Age:</strong> {props.age}</p>
+                    </div>
+                </div>
             </div>
-        </div>
     )
 }
 

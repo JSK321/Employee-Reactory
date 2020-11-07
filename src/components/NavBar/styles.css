@@ -1,6 +1,14 @@
 .navbar {
-    background: firebrick;
+    background: indigo;
     height: 150px;
-    border-bottom: 10px solid green;
-    border-top: 10px solid green;
+    border-bottom: 10px solid goldenrod;
+    border-top: 10px solid goldenrod;
+    color: Snow;
+}
+
+.searchBtn{ 
+    background-color: goldenrod;
+    height: 40px;
+    border-radius: 10px;
+    color:darkslateblue;
 }

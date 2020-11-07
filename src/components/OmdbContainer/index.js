@@ -7,8 +7,8 @@ import API from "../../utils/API";
 class OmdbContainer extends Component {
     state = {
         result: [],
-        search: "",
-
+        filter: "",
+        
     }
 
     componentDidMount() {
@@ -21,25 +21,38 @@ class OmdbContainer extends Component {
         )
     }
 
-    // filterEmployees() {
-    //     const filterResult = this.state.result.filter(result => )
-    //     this.setState()
-    // }
+    employeeFilter = (filter) => {
+       let employeeFilter = this.state.filteredResult
+       employeeFilter = employeeFilter.filter(results => {
+            let filterEmployee = filter.name.first.toLowerCase()
+            return filterEmployee.indexOf(filter.toLowerCase()) !== -1
+       })
+       this.setState({
+           employeeFilter
+       })
+    }
 
     render() {
+      
         return (
             <div>
-                <NavBar />
-                {this.state.result.map(result => (
-                    <EmployeeCard
-                    firstName={result.name.first}
-                    lastName={result.name.last}
-                    phone={result.phone}
-                    email={result.email}
-                    age={result.dob.age}
-                    image={result.picture.large}
-                    />
-                ))}
+                <NavBar 
+                    employeeFilter={this.employeeFilter}
+                />
+                <div className="row">
+                    {this.state.result.map(result => (
+                        <EmployeeCard
+                            key={result.id.value}
+                            gender={result.gender}
+                            firstName={result.name.first}
+                            lastName={result.name.last}
+                            phone={result.phone}
+                            email={result.email}
+                            age={result.dob.age}
+                            image={result.picture.large}
+                        />
+                    ))}
+                </div>
             </div>
         )
     }

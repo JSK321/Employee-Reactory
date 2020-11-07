@@ -1,8 +1,11 @@
 import React from "react";
-import Header from "./components/Header/Header";
+import OmdbContainer from "./components/OmdbContainer";
+// import EmployeeCard from "./components/EmployeeCard";
+// import NavBar from "./components/NavBar";
 
 function App() {
-  return <Header />
+  return <OmdbContainer />
+  
 }
 
 export default App;

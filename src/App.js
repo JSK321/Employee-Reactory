@@ -6,7 +6,7 @@ import API from "./utils/API";
 class App extends Component {
     state = {
         result: [],
-        search:""
+        search:"",
     }
 
     componentDidMount() {
@@ -15,7 +15,7 @@ class App extends Component {
 
     getEmployees() {
         API.search().then(res =>
-            this.setState({ result: res.data.results })
+            this.setState({ result: res.data.results})
         )
     }
 
@@ -40,7 +40,13 @@ class App extends Component {
                    handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit}
                 />
                 <div className="row">
-                    {this.state.result.map(result => (
+                    {this.state.result
+
+                    .filter(result => {
+                      return result.name.first.toLowerCase().indexOf(this.state.search.toLowerCase()) >=0
+                    })
+                    
+                    .map(result => (
                         <EmployeeCard
                             key={result.id.value}
                             firstName={result.name.first}

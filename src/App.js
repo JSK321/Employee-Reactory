@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import NavBar from "./components/NavBar";
 import EmployeeCard from "./components/EmployeeCard";
+import SearchForm from "./components/SearchForm";
+import SortForm from "./components/SortForm";
 import API from "./utils/API";
 
 class App extends Component {
@@ -67,8 +69,11 @@ class App extends Component {
 
     return (
       <div>
-        <NavBar
+        <NavBar />
+        <SearchForm
           handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit}
+        />
+        <SortForm
           handleClickChange={this.handleClickChange}
         />
         <div className="row">

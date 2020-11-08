@@ -4,7 +4,7 @@ import "./styles.css";
 function EmployeeCard(props) {
     return (
             <div className="col-md-4">
-                <div className="card employeeCard">
+                <div className="card employeeCard" id={props.gender ==="female" ? "goldCard" : "purpleCard"}>
                     <img alt="" src={props.image} className="employeePicture" />
                     <div className="card-body">
                         <h5 className="card-title"><strong>Name:</strong> {props.firstName} {props.lastName}</h5>
